@@ -26,8 +26,8 @@ angular.module('starter', ['ionic'])
       StatusBar.styleDefault();
     }
 
-    /*$pouchDB.setDatabase("freshup");
-    $pouchDB.sync("http://192.168.1.107:4984/freshup");*/
+    $pouchDB.setDatabase("freshup");
+    $pouchDB.sync("http://192.168.1.107:4984/freshup");
 
   });
 })
@@ -54,16 +54,16 @@ angular.module('starter', ['ionic'])
 .controller("MainController", function($scope, $rootScope, $state, $stateParams, $pouchDB, $http) {
   $scope.lessons = {};
 
-  $http.get("http://192.168.1.107:4984/freshup")
+  /*$http.get("http://192.168.1.107:4984/freshup")
        .success(function (data, status, headers, config) {
 		            $scope.message = data;
 					 })
 					 .error(function (data, status, headers, config) {
 						 //delete $window.sessionStorage.token;
 						 $scope.message = 'error: ' + status + " : " + config + " : " + headers;
-});
+});*/
 
-  //$pouchDB.startListening();
+  $pouchDB.startListening();
 
   // Listen for changes which include create or update events
   $rootScope.$on("$pouchDB:change", function(event, data) {
@@ -79,9 +79,9 @@ angular.module('starter', ['ionic'])
 
   // Look up a document if we landed in the info screen for editing a document
   if($stateParams.lessonId) {
-      /*$pouchDB.get($stateParams.lessonId).then(function(result) {
+      $pouchDB.get($stateParams.lessonId).then(function(result) {
           $scope.inputForm = result;
-      });*/
+      });
   }
 
   // Save a document with either an update or insert
@@ -112,7 +112,7 @@ angular.module('starter', ['ionic'])
     var changeListener;
 
     this.setDatabase = function(databaseName) {
-        //database = new PouchDB(databaseName);
+        database = new PouchDB(databaseName);
     };
 
     this.startListening = function() {
