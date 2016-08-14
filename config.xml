@@ -19,5 +19,5 @@
     <feature name="StatusBar">
         <param name="ios-package" onload="true" value="CDVStatusBar" />
     </feature>
-    <plugin name="com.couchbase.lite.phonegap" spec="https://github.com/couchbaselabs/Couchbase-Lite-PhoneGap-Plugin.git" />
+    <plugin name="com.couchbase.lite.phonegap" source="npm" />
 </widget>
