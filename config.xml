@@ -9,7 +9,6 @@
     </author>
     <content src="index.html" />
     <access origin="*" />
-    <preference name="deployment-target" value="7.0" />
     <preference name="webviewbounce" value="false" />
     <preference name="UIWebViewBounce" value="false" />
     <preference name="DisallowOverscroll" value="true" />
@@ -20,5 +19,5 @@
     <feature name="StatusBar">
         <param name="ios-package" onload="true" value="CDVStatusBar" />
     </feature>
-    <plugin name="couchbase-lite-phonegap-plugin" source="npm" />
+    <plugin name="cordova-plugin-sqlite-2" spec="1.0.4" />
 </widget>
