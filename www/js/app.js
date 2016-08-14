@@ -29,8 +29,6 @@ angular.module('starter', ['ionic'])
     /*$pouchDB.setDatabase("freshup");
     $pouchDB.sync("http://192.168.1.107:4984/freshup");*/
 
-
-
   });
 })
 .config(function($stateProvider, $urlRouterProvider, $httpProvider) {
@@ -49,17 +47,20 @@ angular.module('starter', ['ionic'])
             "controller": "MainController"
         });
     $urlRouterProvider.otherwise("lessons");
+
+    $httpProvider.defaults.useXDomain = true;
+    delete $httpProvider.defaults.headers.common['X-Requested-With'];
 })
 .controller("MainController", function($scope, $rootScope, $state, $stateParams, $pouchDB, $http) {
   $scope.lessons = {};
 
-  $http.get("http://www.google.ch")
+  $http.get("https://www.google.ch")
        .success(function (data, status, headers, config) {
-		            $scope.message = data.data;
+		            $scope.message = data;
 					 })
 					 .error(function (data, status, headers, config) {
 						 //delete $window.sessionStorage.token;
-						 c$scope.message = 'error: ' + status + " : " + config + " : " + headers;
+						 $scope.message = 'error: ' + status + " : " + config + " : " + headers;
 });
 
   //$pouchDB.startListening();
