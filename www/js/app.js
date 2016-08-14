@@ -54,7 +54,7 @@ angular.module('starter', ['ionic'])
 .controller("MainController", function($scope, $rootScope, $state, $stateParams, $pouchDB, $http) {
   $scope.lessons = {};
 
-  $http.get("https://www.google.ch")
+  $http.get("http://192.168.1.107:4984/freshup")
        .success(function (data, status, headers, config) {
 		            $scope.message = data;
 					 })
