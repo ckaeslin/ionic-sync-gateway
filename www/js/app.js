@@ -34,8 +34,8 @@ angular.module('starter', ['ionic'])
   });
 })
 .config(function($stateProvider, $urlRouterProvider, $httpProvider) {
-    $httpProvider.defaults.useXDomain = true;
-    delete $httpProvider.defaults.headers.common['X-Requested-With'];
+    /*$httpProvider.defaults.useXDomain = true;
+    delete $httpProvider.defaults.headers.common['X-Requested-With'];*/
 
     $stateProvider
         .state("lessons", {
@@ -54,8 +54,13 @@ angular.module('starter', ['ionic'])
   $scope.lessons = {};
 
   $http.get("http://www.google.ch")
-       .then((data) => $scope.message = data.data)
-       .catch((err) => $scope.message = err);
+       .success(function (data, status, headers, config) {
+		            $scope.message = data.data;
+					 })
+					 .error(function (data, status, headers, config) {
+						 //delete $window.sessionStorage.token;
+						 c$scope.message = 'error: ' + status + " : " + config + " : " + headers;
+});
 
   //$pouchDB.startListening();
 
