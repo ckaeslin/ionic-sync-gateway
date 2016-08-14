@@ -53,9 +53,9 @@ angular.module('starter', ['ionic'])
 .controller("MainController", function($scope, $rootScope, $state, $stateParams, $pouchDB, $http) {
   $scope.lessons = {};
 
-  /*$http.get("http://192.168.1.107:4984/freshup")
+  $http.get("http://192.168.1.107:4984/freshup")
        .then((data) => $scope.message = data.data)
-       .catch((err) => $scope.message = err);*/
+       .catch((err) => $scope.message = err);
 
   //$pouchDB.startListening();
 
