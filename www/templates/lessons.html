@@ -3,6 +3,7 @@
         <button class="right button button-icon icon ion-plus" ui-sref="lesson"></button>
     </ion-nav-buttons>
     <ion-content>
+        message: {{message}}
         <ion-list show-delete="false" can-swipe="true">
             <ion-item ng-repeat="(key, value) in lessons" ui-sref="lesson({lessonId: key})">
                 {{value.title}}
