@@ -1,0 +1,16 @@
+<ion-view title="Lesson">
+    <ion-content>
+        <form>
+          <div class="form-group">
+              <label for="firstname">Titel</label>
+              <input type="text" class="form-control" id="title" placeholder="Titel" ng-model="inputForm.title">
+          </div>
+          <div class="form-group">
+              <label for="lastname">Datum</label>
+              <input type="text" class="form-control" id="date" placeholder="Datum" ng-model="inputForm.date">
+          </div>
+          <button type="button" class="btn btn-danger" ui-sref="list">Cancel</button>
+          <button type="button" class="btn btn-success" ng-click="save(inputForm.title, inputForm.date)">Save</button>
+      </form>
+    </ion-content>
+</ion-view>
