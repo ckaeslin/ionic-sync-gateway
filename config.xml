@@ -19,5 +19,5 @@
     <feature name="StatusBar">
         <param name="ios-package" onload="true" value="CDVStatusBar" />
     </feature>
-    <plugin name="cordova-plugin-sqlite-2" spec="1.0.4" />
+    <gap:plugin name="com.couchbase.lite.phonegap" source="npm" />
 </widget>
