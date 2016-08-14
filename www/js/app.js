@@ -10,6 +10,9 @@ angular.module('starter', ['ionic'])
 .run(function($ionicPlatform, $pouchDB) {
   $ionicPlatform.ready(function() {
 
+    $pouchDB.setDatabase("freshup");
+    $pouchDB.sync("http://192.168.1.107:4984/freshup");
+    $pouchDB.startListening();
 
 
     if(window.cordova && window.cordova.plugins.Keyboard) {
@@ -26,8 +29,7 @@ angular.module('starter', ['ionic'])
       StatusBar.styleDefault();
     }
 
-    $pouchDB.setDatabase("freshup");
-    $pouchDB.sync("http://192.168.1.107:4984/freshup");
+
 
   });
 })
@@ -63,7 +65,7 @@ angular.module('starter', ['ionic'])
 						 $scope.message = 'error: ' + status + " : " + config + " : " + headers;
 });*/
 
-  $pouchDB.startListening();
+
 
   // Listen for changes which include create or update events
   $rootScope.$on("$pouchDB:change", function(event, data) {
